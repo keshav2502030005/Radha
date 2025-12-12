@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     formData.append('password', passwordInput.value);
 
     console.log('Sending fetch request...');
-    fetch('login.php', {
+    fetch('../auth/login.php', {
         method: 'POST',
         body: formData
     })
