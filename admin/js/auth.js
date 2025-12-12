@@ -1,48 +1,40 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const messageDiv = document.getElementById('message');
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const msg = document.getElementById('message');
 
-    messageDiv.textContent = '';
-    messageDiv.style.color = 'red';
+    msg.textContent = '';
+    msg.style.color = 'red';
 
-    if (emailInput.value.trim() === '' || passwordInput.value.trim() === '') {
-        messageDiv.textContent = 'Email and Password cannot be empty.';
+    if (email === '' || password === '') {
+        msg.textContent = 'Email and Password cannot be empty.';
         return;
     }
 
     const formData = new FormData();
-    formData.append('email', emailInput.value);
-    formData.append('password', passwordInput.value);
+    formData.append('email', email);
+    formData.append('password', password);
 
-    console.log('Sending fetch request...');
     fetch('../auth/login.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-        console.log(data);
+
+        msg.textContent = data.message;
+        msg.style.color = data.success ? 'green' : 'red';
+
         if (data.success) {
-            messageDiv.style.color = 'green';
-            messageDiv.textContent = data.message;
             setTimeout(() => {
-                window.location.href = 'admin_dashboard.php';
+                window.location.href = '../dashboard/index.html';
             }, 1000);
-        } else {
-            messageDiv.style.color = 'red';
-            messageDiv.textContent = data.message;
-            if (data.redirect) {
-                setTimeout(() => {
-                    window.location.href = data.redirect;
-                }, 1500);
-            }
         }
     })
-    .catch(error => {
-        console.error('Fetch error:', error);
-        messageDiv.textContent = 'A connection error occurred. Make sure Apache is running and you opened via localhost.';
+    .catch(err => {
+        console.error(err);
+        msg.textContent = 'Fetch error: Check Apache or wrong file path.';
     });
 });

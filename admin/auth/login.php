@@ -33,22 +33,33 @@ if ($stmt) {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
+
+        // For now plain-text password check
         if ($password === $user['Password']) {
+
             $_SESSION["loggedin"] = true;
             $_SESSION["id"] = $user['Id'];
             $_SESSION["email"] = $user['Email'];
-            echo json_encode(['success' => true, 'message' => 'Login successful!']);
+
+            echo json_encode([
+                'success' => true,
+                'message' => 'Login successful!',
+                'redirect' => '../dashboard/index.html'
+            ]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
         }
+
     } else {
         echo json_encode([
             'success' => false,
             'message' => 'Account not found. Redirecting to registration...',
-            'redirect' => 'registration.html'
+            'redirect' => '../auth/registration.html'
         ]);
     }
+
     $stmt->close();
+
 } else {
     echo json_encode(['success' => false, 'message' => 'Database query failed.']);
 }
