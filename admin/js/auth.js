@@ -19,7 +19,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     formData.append('password', passwordInput.value);
     
     
-    fetch('login.php', {
+    fetch('http://192.168.1.18/radherani/admin/auth/login.php', {
+
         method: 'POST',
         body: formData
     })

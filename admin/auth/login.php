@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST" || !isset($_POST['email']) || !isset($_
 $email = $conn->real_escape_string(trim($_POST['email']));
 $password = $_POST['password'];
 
-$sql = "SELECT id, email, password_hash FROM admins WHERE email = ?";
+$sql = "SELECT id, email, password_hash FROM admin_info WHERE email = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
