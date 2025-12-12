@@ -1,18 +1,50 @@
-document.getElementById("loginForm").addEventListener("submit", function(e){
-    e.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const messageDiv = document.getElementById('message');
 
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
+    messageDiv.textContent = '';
+    messageDiv.style.color = 'red';
 
-    if(email === "" || password === ""){
-        alert("Please fill all fields");
-        return;
+    
+    if (emailInput.value.trim() === '' || passwordInput.value.trim() === '') {
+        messageDiv.textContent = 'Email and Password cannot be empty.';
+        return; 
     }
 
-    if(email === "admin@gmail.com" && password === "admin123"){
-        alert("Login Successful!");
-        window.location.href = "../dashboard/index.html";
+    const formData = new FormData();
+    formData.append('email', emailInput.value);
+    formData.append('password', passwordInput.value);
+    
+    
+    fetch('login.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json()) 
+.then(data => {
+   
+    if (data.success) {
+        messageDiv.style.color = 'green';
+        messageDiv.textContent = data.message;
+        window.location.href = 'admin_dashboard.php'; 
     } else {
-        alert("Invalid Credentials!");
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = data.message;
+        
+       
+        if (data.redirect) {
+             setTimeout(() => {
+                 window.location.href = data.redirect; 
+             }, 1500); 
+        }
     }
+})
+// ...
+    .catch(error => {
+        console.error('Fetch error:', error);
+        messageDiv.textContent = 'A connection error occurred.';
+    });
 });

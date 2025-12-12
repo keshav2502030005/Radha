@@ -70,11 +70,18 @@ body {
     text-align: right;
     margin-top: 5px;
 }
-link{
-    margin-top: 5px;
+.link {
+    margin-top: 15px;
+    text-align: center;
 }
 
-.links a {
-    text-decoration: none;
-    color: #4a72ff;
+.link p {
+    color: #444;
 }
+
+.link a {
+    color: #4a72ff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
