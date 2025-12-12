@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     font-family: "Playwrite US Modern", cursive;
+    background: #f0f2f5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #444;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #4a72ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #3b5edc;
+}
+
+.links {
+    text-align: right;
+    margin-top: 5px;
+}
+link{
+    margin-top: 5px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #4a72ff;
+}
