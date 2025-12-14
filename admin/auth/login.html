@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin login page </title>
-   <link rel="stylesheet" href="../css/auth.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Momo+Signature&family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Admin Login | Signup</title>
+  <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-box">
-            <h2>Admin Login</h2>
 
-            <div id="message" style="color: red; margin-bottom: 10px;"></div>
+<div class="wrapper">
+  <div class="title-text">
+    <div class="title login">Admin Login</div>
+    <div class="title signup">Admin Signup</div>
+  </div>
 
-            <form id="loginForm">
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter admin email" required>
-                </div>
-
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter password" required>
-                </div>
-
-                <div class="links">
-                    <a href="forgot-password.html">Forgot Password?</a>
-                </div>
-
-                <button type="submit" class="btn">Login</button>
-
-                <div class="link">
-                    <p>Don't have an account? <a href="registration.html">Register here</a></p>
-                </div>
-                
-            </form>
-        </div>
+  <div class="form-container">
+    <div class="slide-controls">
+      <input type="radio" name="slide" id="login" checked>
+      <input type="radio" name="slide" id="signup">
+      <label for="login" class="slide login">Login</label>
+      <label for="signup" class="slide signup">Signup</label>
+      <div class="slider-tab"></div>
     </div>
 
-   <script src="../js/auth.js"></script>
+    <div class="form-inner">
+
+      <!-- LOGIN FORM -->
+      <form action="login.php" method="POST" class="login">
+        <div class="field">
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="field">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="pass-link">
+          <a href="forgot-password.html">Forgot password?</a>
+        </div>
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="Login">
+        </div>
+        <div class="signup-link">
+          Not a member? <a href="#">Signup now</a>
+        </div>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form action="signup.php" method="POST" class="signup">
+
+        <div class="field">
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+
+        <div class="field">
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="field">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="field">
+          <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        </div>
+
+        <!-- default role -->
+        <input type="hidden" name="role" value="owner">
+
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/auth.js"></script>
 </body>
 </html>
