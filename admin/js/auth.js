@@ -1,40 +1,20 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+const loginText = document.querySelector(".title-text .login");
+const loginForm = document.querySelector("form.login");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector(".signup-link a");
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const msg = document.getElementById('message');
+signupBtn.onclick = () => {
+  loginForm.style.marginLeft = "-50%";
+  loginText.style.marginLeft = "-50%";
+};
 
-    msg.textContent = '';
-    msg.style.color = 'red';
+loginBtn.onclick = () => {
+  loginForm.style.marginLeft = "0%";
+  loginText.style.marginLeft = "0%";
+};
 
-    if (email === '' || password === '') {
-        msg.textContent = 'Email and Password cannot be empty.';
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-
-    fetch('../auth/login.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-
-        msg.textContent = data.message;
-        msg.style.color = data.success ? 'green' : 'red';
-
-        if (data.success) {
-            setTimeout(() => {
-                window.location.href = '../dashboard/index.html';
-            }, 1000);
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        msg.textContent = 'Fetch error: Check Apache or wrong file path.';
-    });
-});
+signupLink.onclick = (e) => {
+  e.preventDefault();
+  signupBtn.click();
+};
