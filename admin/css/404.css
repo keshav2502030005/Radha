@@ -1,29 +1,40 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arvo', serif;
-    background: #000;
+    padding: 40px 0;
+    background: #fff;
+    font-family: "Arvo", serif;
+    overflow: hidden;
 }
 
-/* GIF BACKGROUND */
+.page_404 img {
+    width: 100%;
+}
+
 .four_zero_four_bg {
-    background-image: url("/admin/assets/images/icons/bg.gif");
-    height: 400px;
+    background-image: url('assets/images/icons/bg.gif');
+    height: 500px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
 }
 
-.contant_box_404 {
-    text-align: center;
-    color: #fff;
+.four_zero_four_bg h1 {
+    font-size: 80px;
+}
+
+.contant_box_404 h3 {
+    font-size: 40px;
 }
 
 .link_404 {
-    color: #fff;
+    color: #fff !important;
     padding: 10px 20px;
-    background: #ff4c4c;
-    text-decoration: none;
-    border-radius: 5px;
+    background: #39ac31;
+    margin: 20px 0;
     display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
 }
