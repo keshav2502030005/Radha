@@ -1,47 +1,29 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arvo', serif;
+    background: #000;
 }
 
-.container {
+/* GIF BACKGROUND */
+.four_zero_four_bg {
+    background-image: url("/admin/assets/images/icons/bg.gif");
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.contant_box_404 {
     text-align: center;
+    color: #fff;
 }
 
-.container h1 {
-    font-size: 120px;
-    color: #ff4c4c;
-    margin: 0;
-    animation: bounce 2s infinite;
-}
-
-.container p {
-    font-size: 24px;
-    margin: 10px 0 30px 0;
-}
-
-.container .gif {
-    width: 300px;
-    height: auto;
-    display: block;
-    margin: 0 auto 30px auto;
-}
-
-.container .btn {
-    text-decoration: none;
-    padding: 10px 25px;
+.link_404 {
+    color: #fff;
+    padding: 10px 20px;
     background: #ff4c4c;
-    color: white;
+    text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    display: inline-block;
 }
