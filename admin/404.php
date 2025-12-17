@@ -35,7 +35,6 @@ http_response_code(404);
 <section class="page_404">
   <div class="container">
     <div class="row">
-<<<<<<< HEAD
       <div class="col-sm-12 text-center">
 
         <div class="four_zero_four_bg"></div>
@@ -49,7 +48,6 @@ http_response_code(404);
           </a>
         </div>
 
-=======
       <div class="col-sm-12">
         <div class="col-sm-10 col-sm-offset-1 text-center">
 
@@ -65,7 +63,6 @@ http_response_code(404);
           </div>
 
         </div>
->>>>>>> feature-otp
       </div>
     </div>
   </div>
