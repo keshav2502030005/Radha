@@ -1,30 +1,16 @@
-<?php
-http_response_code(404);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 - Page Not Found</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/admin/css/404.css">
+    <meta charset="UTF-8">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="css/404.css">
 </head>
-
 <body>
-<section class="page_404">
-  <div class="container text-center">
-    <div class="four_zero_four_bg"></div>
-
-    <div class="contant_box_404">
-      <h3>Look like you're lost</h3>
-      <p>The page you are looking for is not available.</p>
-      <a href="/admin/dashboard/index.html" class="link_404">
-        Go to Dashboard
-      </a>
+    <div class="container">
+        <h1>404</h1>
+        <p>Oops! Page not found.</p>
+        <img src="assets/images/icons/bg.gif" alt="404 Animation" class="gif">
+        <a href="dashboard/index.html" class="btn">Go Home</a>
     </div>
-  </div>
-</section>
 </body>
 </html>
